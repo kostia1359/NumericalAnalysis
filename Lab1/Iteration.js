@@ -1,6 +1,6 @@
 // f=x^4+3x^3-20x^2-44x-54
-const getValue=(x)=>{
-    return Math.pow(x,4)+3*Math.pow(x,3)-20*Math.pow(x,2)-44*x-54;
+const getValue = (x) => {
+    return Math.pow(x, 4) + 3 * Math.pow(x, 3) - 20 * Math.pow(x, 2) - 44 * x - 54;
 }
 
 const getValuePhi = (x) => {

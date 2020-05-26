@@ -41,7 +41,7 @@ const getDeltaF=(n,k,y)=>{
     if(n===1) return y[k+1]-y[k];
     return getDeltaF(n-1,k+1,y)-getDeltaF(n-1,k,y);
 }
-const getNewton=(value)=>{
+const getNewton = (value) => {
     const h=0.1;
     const x0=0.2;
     const x=[];
@@ -60,5 +60,5 @@ const getNewton=(value)=>{
     }
     return sum;
 }
-console.log(getNewtonByChebishov(0.3));
-console.log(getNewton(0.3));
+console.log('за вузлами, які є коренями Чебишова ',getNewtonByChebishov(0.3));
+console.log('за рівновіддаленими вузлами ',getNewton(0.3));

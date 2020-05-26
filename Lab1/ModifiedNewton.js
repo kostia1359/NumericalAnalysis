@@ -7,7 +7,7 @@ const df = (function (x) {
 })(x0);
 
 const isFinished = (x1) => {
-    return Math.abs(getValue(x1))<E;
+    return Math.abs(getValue(x1)) < E;
 }
 
 const E = 1e-7;

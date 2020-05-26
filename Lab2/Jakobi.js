@@ -1,5 +1,5 @@
 const dimension = 3;
-const e=1e-3;
+const e = 1e-3;
 let apostariar = 0;
 const findQ = (matrix) => {
     let max = 0, sum = 0;
@@ -52,38 +52,37 @@ const solve = (matrix, vector) => {
 
     while (true) {
         for (let k = 0; k < dimension; ++k) {
-            for(let i=0;i<dimension;++i){
-                if(i===k) continue;
-                sum-=matrix[i][k]*x[i];
+            for (let i = 0; i < dimension; ++i) {
+                if (i === k) continue;
+                sum -= matrix[i][k] * x[i];
             }
-            sum=(sum+vector[k])/matrix[k][k];
+            sum = (sum + vector[k]) / matrix[k][k];
             xNew.push(sum);
-            sum=0;
+            sum = 0;
         }
         ++apostariar;
         if (getNormaVector(x, xNew) < e)
             break;
-        x=xNew;
-        xNew=[];
+        x = xNew;
+        xNew = [];
     }
 
     return x;
 }
 
-const matrix=[
-    [3,-1,1],
-    [-1,2,0.5],
-    [1,0.5,3]
+const matrix = [
+    [3, -1, 1],
+    [-1, 2, 0.5],
+    [1, 0.5, 3]
 ];
-const vector=[1,1.75,2.5];
+const vector = [1, 1.75, 2.5];
 
-let x=[];
-let x0=[];
+let x = [];
+let x0 = [];
 for (let i = 0; i < dimension; ++i) x0.push(0);
-x=solve(matrix,vector,e);
-for(let i=0;i<dimension;i++){
+x = solve(matrix, vector, e);
+for (let i = 0; i < dimension; i++) {
     console.log(`x${i}=${x[i]}`);
 }
 console.log(`апостеріорна оцінка:n >=${apostariar}`);
-console.log(findQ(matrix));
-console.log(`апріорна оцінка:n >= ${getAprior(matrix,vector,x0)}`)
+console.log(`апріорна оцінка:n >= ${getAprior(matrix, vector, x0)}`)
